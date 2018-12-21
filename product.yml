@@ -1,0 +1,27 @@
+#端口
+server:
+  port: 8081
+#  spring
+spring:
+  # Mysql 数据库
+  datasource:
+    url: jdbc:mysql://192.168.56.101:3306/sell_system?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: 123456
+#  Mybatis
+mybatis:
+#  configuration:
+#    map-underscore-to-camel-case: true
+#    use-generated-keys: true
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.example.product.domain
+# 打印sql
+logging:
+  level:
+    com.example.product.dao: debug
+# 分页配置
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
